@@ -1,0 +1,18 @@
+.Logo{
+    font-size:36px;
+    font-weight: bold;
+    color: var(--primary-color-1);
+}
+
+.Logo:hover{
+    color: var(--primary-color-1);
+}
+.Logo > span{
+    color: var(--primary-color-2);
+}
+
+.cart{
+    font-size: 20px;
+    font-weight:600;
+}
+
