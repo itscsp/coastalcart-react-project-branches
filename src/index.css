@@ -1,0 +1,25 @@
+:root{
+    --primary-color-1:#e16208;
+    --primary-color-2:#1b4e11;
+    --primary-color-3:#89bc83;
+    --black-color:#0f0d0d;
+    --white-color:#fff;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+h3{
+    padding: 1rem 0;
+}
+
+.rating span{
+    margin: 0.1rem;
+}

@@ -1,4 +1,18 @@
 
 .footer{
     background:var(--primary-color-3);
+    padding-top:2rem;
+}
+
+.Logo > span{
+    color: var(--primary-color-2);
+}
+
+.footer-links > li{
+    padding:12px 18px;
+    font-size: 1rem;
+}
+
+.footer-bottom{
+    background-color: var(--primary-color-2);
 }
