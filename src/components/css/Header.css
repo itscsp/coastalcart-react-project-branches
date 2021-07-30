@@ -1,3 +1,8 @@
+.header-main{
+    border-bottom: 2px solid var(--primary-color-1);
+    margin-bottom: 30px;
+}
+
 .Logo{
     font-size:36px;
     font-weight: bold;
