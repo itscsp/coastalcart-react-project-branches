@@ -7,6 +7,16 @@
 
 }
 
+i {
+    margin: 0px 5px;
+}
+
+.border-style{
+    color: var(--primary-color-2);
+    border-left: 8px solid var(--primary-color-1);
+    padding-left:1rem;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -16,6 +26,17 @@
 a{
     text-decoration: none;
 }
+ 
+h1{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h2{
+    font-size: 1.4rem;
+    padding: 0.5rem 0;
+}
+
 h3{
     padding: 1rem 0;
 }

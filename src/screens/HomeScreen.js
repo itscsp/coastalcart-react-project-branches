@@ -22,7 +22,7 @@ function HomeScreen() {
     
     return (
         <div>
-            <h2 class="leatest-product mt-4">Latest Prodcuts</h2>
+            <h2 class="border-style mt-4">Latest Prodcuts</h2>
             {loading ? <Loader />
                 :error ? <Message variant='danger'>{error}</Message>
                     : 
