@@ -5,7 +5,7 @@ function Message({variant, children}) {
     return (
     <Container>
         <Row>
-            <Col lg={{ span: 6, offset: 3 }} md={{ span: 6, offset: 3 }} sm={{ span: 6, offset: 3 }}>
+            <Col>
                 <Alert variant={variant} style={{
                         textAlign: 'center',
                     }} > 
