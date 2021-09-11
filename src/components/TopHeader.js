@@ -1,9 +1,22 @@
 import React from "react";
 import "./css/TopNav.css";
-import { Container, Nav } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux'
+import { Container, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { logout } from '../actions/userActions'
 
 function TopHeader() {
+
+  const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+
+    const dispatch = useDispatch()
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
+
+
   return (
     <header>
       <Container fluid className="py-3 top__nav">
@@ -31,12 +44,22 @@ function TopHeader() {
                 Call us :- <span className="top__span">+919483527972</span>
               </a>
             </li>
-            <Nav className="m-auto">
-              <LinkContainer to="/login">
-                <Nav.Link>
-                  <i className="fas fa-user"></i>Login
-                </Nav.Link>
-              </LinkContainer>
+            <Nav className="m-auto" varient="primary">  
+              {userInfo ? (
+                      <NavDropdown title={userInfo.name} id='username'>
+                          <LinkContainer to='/profile'>
+                              <NavDropdown.Item>Profile</NavDropdown.Item>
+                          </LinkContainer>
+
+                          <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+
+                      </NavDropdown>
+                  ) : (
+                      <LinkContainer to='/login'>
+                              <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
+                          </LinkContainer>
+                      )}
+                        
             </Nav>
           </div>
         </Nav>
