@@ -69,7 +69,7 @@ function ProfileScreen({ history }) {
     return (
         <Row>
             <Col md={3}>
-                <h2>User Profile</h2>
+                <h2 class="border-style">User Profile</h2>
         
                 {message && <Message variant='info'>{message}</Message>}
                 {error && <Message variant='danger'>{error}</Message>}
@@ -132,7 +132,7 @@ function ProfileScreen({ history }) {
             </Col>
 
             <Col md={9}>
-                <h2>My Orders</h2>
+                <h2 class="border-style">My Orders</h2>
                 {/* {loadingOrders ? (
                     <Loader />
                 ) : errorOrders ? (
