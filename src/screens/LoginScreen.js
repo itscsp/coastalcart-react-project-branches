@@ -19,12 +19,14 @@ function LoginScreen({ location, history }) {
 
     useEffect(() => {
         if (userInfo) {
-            history.push(redirect)
+            window.confirm('Wellcome to CoastalCart') 
+            history.push(redirect) 
         }
     }, [history, userInfo, redirect])
 
     const submitHandler = (e) => {
         e.preventDefault()
+
         dispatch(login(email, password))
     }
 

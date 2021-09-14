@@ -20,7 +20,7 @@ function TopHeader() {
   return (
     <header>
       <Container fluid className="py-3 top__nav">
-        <Nav className="nav justify-content-between">
+        <Nav className="nav justify-content-between" varient="ligth">
           <div className="nav__top-left d-flex">
             <li className="nav-item">
               <a href="#" className="nav-link">
@@ -44,7 +44,7 @@ function TopHeader() {
                 Call us :- <span className="top__span">+919483527972</span>
               </a>
             </li>
-            <Nav className="m-auto" varient="primary">  
+            <Nav className="m-auto" className="top_span">  
               {userInfo ? (
                       <NavDropdown title={userInfo.name} id='username'>
                           <LinkContainer to='/profile'>
