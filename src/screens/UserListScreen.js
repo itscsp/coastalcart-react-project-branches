@@ -1,4 +1,4 @@
-   import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,6 +19,7 @@ function UserListScreen({ history }) {
     const userDelete = useSelector(state => state.userDelete)
     const { success: successDelete } = userDelete
 
+    // const userLogin = useSelector 
 
     useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
@@ -27,18 +28,18 @@ function UserListScreen({ history }) {
             history.push('/login')
         }
 
-    }, [dispatch, history,successDelete,  userInfo])
+    }, [dispatch, history, successDelete, userInfo])
 
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
-            dispatch(deleteUser(  id))
-        } 
+            dispatch(deleteUser(id))
+        }
     }
 
     return (
         <div>
-            <h2 className="border-style">Users</h2>
+            <h1>Users</h1>
             {loading
                 ? (<Loader />)
                 : error
