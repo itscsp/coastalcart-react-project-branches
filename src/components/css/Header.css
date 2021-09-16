@@ -21,3 +21,17 @@
     font-weight:600;
 }
 
+form.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color-1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.form-control {
+
+    border: 2px solid #e95420 !important;
+ 
+}

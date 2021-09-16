@@ -2,6 +2,7 @@ import React from "react";
 import './css/Header.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Row, Navbar, Nav, NavDropdown  } from "react-bootstrap";
+import SearchBox from './SearchBox'
 import { LinkContainer } from 'react-router-bootstrap';
 
 function Header() {
@@ -18,6 +19,7 @@ function Header() {
           <Navbar.Toggle aria-controls="navbarScroll"><i class="fas fa-ellipsis-v"></i></Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
             <Nav className="m-auto"></Nav>
+            <SearchBox />
             <LinkContainer to="/cart">
               <Nav.Link className="cart"> <i class="fas fa-shopping-bag"></i>Cart</Nav.Link>
             </LinkContainer>
