@@ -3,6 +3,18 @@
     background: var(--primary-color-3);
 }
 
+.dropdown-item.active, .dropdown-item {
+    color: #fff;
+    text-decoration: none;
+    background-color: #e95420;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #e95420 !important;
+    background-color: #e9ecef;
+}
+
+
 .top__nav .nav .nav-item a{
     color: var(--white-color);
 }
@@ -12,9 +24,18 @@
     font-weight: bold;
 }
 
+
+/* top nav resposive code */
+@media only screen and (min-width: 724px) {
+    .banner{
+        margin-top: -30px;
+    }
+  }
+
 /* top nav resposive code */
 @media only screen and (max-width: 724px) {
     .nav__top-media{
       display:none;
     }
   }
+
