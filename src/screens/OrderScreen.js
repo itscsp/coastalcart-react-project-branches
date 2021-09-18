@@ -36,7 +36,7 @@ function OrderScreen({ match, history }) {
     const addPayPalScript = () => {
         const script = document.createElement('script')
         script.type = 'text/javascript'
-        script.src = 'https://www.paypal.com/sdk/js?client-id=AVqp_F6CuxnCZLBdQCCQ4exwPsoDzk6olQEVj7ZUJBV2a1IKsSJEbLRlPvMupoNpJ-6Pv_iAoEQE642J'      
+        script.src = 'https://www.paypal.com/sdk/js?client-id=AUtOGwLz6kaZdOem-2_VJK1Stg4CTZYPkTPYvqi-2mvY3QGjlYDObLASDT0zrFlWNer7HD1RhxJsjbxz'
         script.async = true
         script.onload = () => {
             setSdkReady(true)
@@ -44,15 +44,13 @@ function OrderScreen({ match, history }) {
         document.body.appendChild(script)
     }
 
-    // AVqp_F6CuxnCZLBdQCCQ4exwPsoDzk6olQEVj7ZUJBV2a1IKsSJEbLRlPvMupoNpJ-6Pv_iAoEQE642J
-
     useEffect(() => {
 
         if (!userInfo) {
             history.push('/login')
         }
 
-        if (!order   || order._id !== Number(orderId) || successDeliver) {
+        if (!order   || order._id !== Number(orderId) || successDeliver || successPay) {
             dispatch({ type: ORDER_PAY_RESET })
             dispatch({ type: ORDER_DELIVER_RESET })
 
@@ -64,7 +62,7 @@ function OrderScreen({ match, history }) {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, order, orderId, successPay, successDeliver])
+    }, [dispatch, order, orderId,  successPay, successDeliver])
 
 
     const successPaymentHandler = (paymentResult) => {
@@ -203,7 +201,7 @@ function OrderScreen({ match, history }) {
                                     )}
                                 </ListGroup>
                                 {loadingDeliver && <Loader />}
-                                {userInfo && userInfo.isAdmin && order.isPaid && !order.isPaid && !order.isDelivered && (
+                                {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                                     <ListGroup.Item>
                                         <Button
                                             type='button'

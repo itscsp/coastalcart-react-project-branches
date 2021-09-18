@@ -27,11 +27,10 @@ function PaymentScreen({ history }) {
     return (
         <FormContainer>
             <CheckoutSteps step1 step2 step3 />
-            <h2 className="border-style">Payment Method</h2>
+
             <Form onSubmit={submitHandler}>
-                
                 <Form.Group>
-                    <Form.Label as='legend' className="text-center">Select Method</Form.Label>
+                    <Form.Label as='legend'>Select Method</Form.Label>
                     <Col>
                         <Form.Check
                             type='radio'

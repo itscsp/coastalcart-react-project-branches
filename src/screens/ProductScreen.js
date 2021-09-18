@@ -79,7 +79,7 @@ function ProductScreen({ match, history }) {
                                 </ListGroup.Item>
 
                                 <ListGroup.Item>
-                                    Price: ${product.price}
+                                    Price: ₹{product.price}
                                 </ListGroup.Item>
 
                                 <ListGroup.Item>
@@ -90,13 +90,13 @@ function ProductScreen({ match, history }) {
 
 
                         <Col md={3}>
-                        /    <Card>
+                            <Card>
                                 <ListGroup variant='flush'>
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Price:</Col>
                                             <Col>
-                                                <strong>${product.price}</strong>
+                                                <strong>₹{product.price}</strong>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
