@@ -19,7 +19,6 @@ function LoginScreen({ location, history }) {
 
     useEffect(() => {
         if (userInfo) {
-            window.confirm('Wellcome to CoastalCart') 
             history.push(redirect) 
         }
     }, [history, userInfo, redirect])

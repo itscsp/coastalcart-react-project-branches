@@ -185,7 +185,7 @@ function OrderScreen({ match, history }) {
                                     </ListGroup.Item>
 
 
-                                    {!order.isPaid && (
+                                    {!order.isPaid && !userInfo.isAdmin && (
                                         <ListGroup.Item>
                                             {loadingPay && <Loader />}
 

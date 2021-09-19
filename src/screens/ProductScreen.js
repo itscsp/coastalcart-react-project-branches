@@ -68,7 +68,7 @@ function ProductScreen({ match, history }) {
                         </Col>
 
 
-                        <Col md={3}>
+                        <Col md={2}>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <h3>{product.name}</h3>
@@ -134,16 +134,22 @@ function ProductScreen({ match, history }) {
                                         </ListGroup.Item>
                                     )}
 
-
+									{ userInfo && !userInfo.isAdmin ?
                                     <ListGroup.Item>
                                         <Button
                                             onClick={addToCartHandler}
                                             className='btn-block'
-                                            disabled={product.countInStock == 0}
+                                            disabled={product.countInStock == 0 || !userInfo}
                                             type='button'>
                                             Add to Cart
                                         </Button>
                                     </ListGroup.Item>
+									
+									:  !userInfo ?(
+											<Message variant='info'>Please <Link to='/login'>login</Link> to Buy</Message>
+											) : <div></div>  
+                                    }
+									
                                 </ListGroup>
                             </Card>
                         </Col>
