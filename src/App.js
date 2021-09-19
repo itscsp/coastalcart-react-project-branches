@@ -23,6 +23,8 @@ import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 
+import NotFound from './screens/NotFound';
+
 function App() {
   return (
     <Router>
@@ -48,6 +50,9 @@ function App() {
 
             <Route path='/admin/productlist' component={ProductListScreen} />
             <Route path='/admin/orderlist' component={OrderListScreen} />
+
+
+            <Route component={NotFound} />
 
           </Container>
         </main>
