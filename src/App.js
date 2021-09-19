@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route ,  Switch } from 'react-router-dom';
 
 // components
 import Header from './components/Header';
@@ -28,32 +28,34 @@ import NotFound from './screens/NotFound';
 function App() {
   return (
     <Router>
+      
       <TopHeader /> 
       <Header />
         <main>
           <Container>
+            <Switch>
             <Route path="/" component={HomeScreen} exact />
-            <Route path='/login' component={LoginScreen} />
-            <Route path='/register' component={RegisterScreen} />
-            <Route path='/profile' component={ProfileScreen} />
-            <Route path='/shipping' component={ShippingScreen} />
+            <Route path='/login' component={LoginScreen} exact/>
+            <Route path='/register' component={RegisterScreen} exact/>
+            <Route path='/profile' component={ProfileScreen} exact/>
+            <Route path='/shipping' component={ShippingScreen} exact/>
             <Route path='/payment' component={PaymentScreen} />
-            <Route path='/placeorder' component={PlaceOrderScreen} />
-            <Route path='/order/:id' component={OrderScreen} />
-            <Route path="/product/:id" component={ProductScreen} />
-            <Route path="/cart/:id?" component={CartScreen} />
+            <Route path='/placeorder' component={PlaceOrderScreen} exact/>
+            <Route path='/order/:id' component={OrderScreen} exact/>
+            <Route path="/product/:id" component={ProductScreen} exact/>
+            <Route path="/cart/:id?" component={CartScreen} exact/>
 
             {/* admin routes */}
-            <Route path='/admin/userlist' component={UserListScreen} />
-            <Route path='/admin/user/:id/edit' component={UserEditScreen} />
-            <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
+            <Route path='/admin/userlist' component={UserListScreen} exact/>
+            <Route path='/admin/user/:id/edit' component={UserEditScreen} exact/>
+            <Route path='/admin/product/:id/edit' component={ProductEditScreen} exact/>
 
-            <Route path='/admin/productlist' component={ProductListScreen} />
-            <Route path='/admin/orderlist' component={OrderListScreen} />
+            <Route path='/admin/productlist' component={ProductListScreen} exact/>
+            <Route path='/admin/orderlist' component={OrderListScreen} exact/>
 
 
-            <Route component={NotFound} />
-
+            <Route path='/*' component={NotFound} />
+          </Switch>
           </Container>
         </main>
       <Footer />
