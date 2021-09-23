@@ -13,7 +13,9 @@ function ProductListScreen({ history, match }) {
     const dispatch = useDispatch()
 
     const productList = useSelector(state => state.productList)
+    
     const { loading, error, products, pages, page } = productList
+    console.log(products)
 
     const productDelete = useSelector(state => state.productDelete)
     const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
@@ -29,7 +31,7 @@ function ProductListScreen({ history, match }) {
     useEffect(() => {
         dispatch({ type: PRODUCT_CREATE_RESET })
 
-        if (!userInfo.isAdmin) {
+        if (!userInfo || !userInfo.isAdmin ) {
             history.push('/login')
         }
 
@@ -80,6 +82,17 @@ function ProductListScreen({ history, match }) {
                     ? (<Message variant='danger'>{error}</Message>)
                     : (
                         <div>
+                            
+                            <div  style={{
+                                textAlign: 'center',
+                                backgroundColor: "black",
+                                color: "white",
+                                padding:"5px 0px"
+                            }}
+                            >{products.map(product =>(
+                                <p className="m-0">
+                                {product.countInStock < 10 ? `${product.name} stock is ${product.countInStock}` : ' '}</p>
+                            ))}</div>
                             <Table striped bordered hover responsive className='table-sm'>
                                 <thead>
                                     <tr>
@@ -88,7 +101,8 @@ function ProductListScreen({ history, match }) {
                                         <th>PRICE</th>
                                         <th>CATEGORY</th>
                                         <th>BRAND</th>
-                                        <th></th>
+                                        <th>STOCK</th>
+                                        <th>EDIT/DELETE</th>
                                     </tr>
                                 </thead>
 
@@ -100,6 +114,7 @@ function ProductListScreen({ history, match }) {
                                             <td>₹{product.price}</td>
                                             <td>{product.category}</td>
                                             <td>{product.brand}</td>
+                                            <td>{product.countInStock}</td>
 
                                             <td>
                                                 <LinkContainer to={`/admin/product/${product._id}/edit`}>
@@ -117,6 +132,7 @@ function ProductListScreen({ history, match }) {
                                 </tbody>
                             </Table>
                             <Paginate pages={pages} page={page} isAdmin={true} />
+                            
                         </div>
                     )}
         </div>

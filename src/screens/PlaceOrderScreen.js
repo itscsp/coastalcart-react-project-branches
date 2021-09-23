@@ -20,8 +20,9 @@ function PlaceOrderScreen({ history }) {
     cart.shippingPrice = (cart.itemsPrice > 500 ? 0 : 40).toFixed(2)
     cart.taxPrice = Number((0.082) * cart.itemsPrice).toFixed(2)
 
-    cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
+    let PriceInRupes = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
 
+    cart.totalPrice = Number(PriceInRupes / 64).toFixed(2);
 
     if (!cart.paymentMethod) {
         history.push('/payment')
@@ -132,11 +133,22 @@ function PlaceOrderScreen({ history }) {
                                     <Col>₹{cart.taxPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
+                            
+                            <ListGroup.Item>
+                                <Row>
+                                    
+                                    
+                                    <Col>Total In Rupees:</Col>
+                                    <Col>₹{PriceInRupes}</Col>
+                                </Row>
+                            </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
+                                    
+                                    <Message variant='info'>We Converting Rupees Total Into Dollar becouse of PayPal transaction</Message>
                                     <Col>Total:</Col>
-                                    <Col>₹{cart.totalPrice}</Col>
+                                    <Col>${cart.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
 

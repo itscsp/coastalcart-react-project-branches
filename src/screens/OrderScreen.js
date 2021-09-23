@@ -62,7 +62,7 @@ function OrderScreen({ match, history }) {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, order, orderId,  successPay, successDeliver])
+    }, [dispatch, order, orderId,  successPay, successDeliver, userInfo])
 
 
     const successPaymentHandler = (paymentResult) => {
@@ -179,13 +179,21 @@ function OrderScreen({ match, history }) {
 
                                     <ListGroup.Item>
                                         <Row>
-                                            <Col>Total:</Col>
-                                            <Col>₹{order.totalPrice}</Col>
+                                            <Col>Total In Rupees:</Col>
+                                            <Col>₹{order.totalPrice * 64}</Col>
+                                        </Row>
+                                    </ListGroup.Item>
+
+                                    <ListGroup.Item>
+                                        <Row>
+                                            <Col>Total In Dollar:</Col>
+                                            <Col>${order.totalPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
 
-                                    {!order.isPaid && !userInfo.isAdmin && (
+                                    {!order.isPaid && userInfo &&  (
+                                        
                                         <ListGroup.Item>
                                             {loadingPay && <Loader />}
 
@@ -199,6 +207,13 @@ function OrderScreen({ match, history }) {
                                                 )}
                                         </ListGroup.Item>
                                     )}
+
+                                    {order.isPaid && !userInfo.isAdmin && (
+                                         <Link to='/profile' className='btn btn-primary my-3'>Order List</Link>
+                                    )}  
+
+
+
                                 </ListGroup>
                                 {loadingDeliver && <Loader />}
                                 {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (

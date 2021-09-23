@@ -1,11 +1,12 @@
 import React from "react";
 import "./css/TopNav.css";
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from '../actions/userActions'
 
-function TopHeader() {
+function TopHeader({ history}) {
 
   const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -13,7 +14,8 @@ function TopHeader() {
     const dispatch = useDispatch()
 
     const logoutHandler = () => {
-        dispatch(logout())
+      dispatch(logout())
+
     }
 
 
@@ -51,7 +53,9 @@ function TopHeader() {
                               <NavDropdown.Item>Profile</NavDropdown.Item>
                           </LinkContainer>
 
-                          <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                          <NavDropdown.Item onClick={logoutHandler}>
+                            Logout
+                          </NavDropdown.Item>
 
                       </NavDropdown>
                   ) : (

@@ -105,7 +105,7 @@ function ProfileScreen({ history }) {
                         <Form.Control
 
                             type='password'
-                            placeholder='Enter Password'
+                            placeholder='Enter New Password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         >
@@ -117,14 +117,14 @@ function ProfileScreen({ history }) {
                         <Form.Control
 
                             type='password'
-                            placeholder='Confirm Password'
+                            placeholder='Confirm New Password'
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         >
                         </Form.Control>
                     </Form.Group>
 
-                    <Button type='submit' variant='primary'>
+                    <Button type='submit' variant='primary' className="mt-2">
                         Update
                     </Button>
 
@@ -155,7 +155,7 @@ function ProfileScreen({ history }) {
                                     <tr key={order._id}>
                                         <td>{order._id}</td>
                                         <td>{order.createdAt.substring(0, 10)}</td>
-                                        <td>${order.totalPrice}</td>
+                                        <td><span class="bg-primary text-white">₹{order.totalPrice * 64}</span> | ${order.totalPrice}</td>
                                         <td>{order.isPaid ? order.paidAt.substring(0, 10) : (
                                             <i className='fas fa-times' style={{ color: 'red' }}></i>
                                         )}</td>
